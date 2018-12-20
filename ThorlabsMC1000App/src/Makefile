@@ -20,6 +20,8 @@ ThorlabsMC1000_SRCS += thorlabs_mc1000_driver.cpp
 
 ThorlabsMC1000_LIBS += $(EPICS_BASE_IOC_LIBS)
 
+CPPFLAGS += -std=c++11
+
 #===========================
 
 include $(TOP)/configure/RULES
