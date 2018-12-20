@@ -1,0 +1,87 @@
+
+record (stringin, "$(P)$(R)FirmwareRevision") {
+	field (SCAN, "I/O Intr")
+	field (DTYP, "asynOctetRead")
+	field (INP, "@asyn($(PORT),$(ADDR),$(TIMEOUT))FIRMWARE_REVISION")
+}
+record (bo, "$(P)$(R)EnableMotor") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))ENABLE_MOTOR")
+	field (ZNAM, "No")
+	field (ONAM, "Yes")
+	info (asyn:READBACK, "1")
+}
+record (mbbo, "$(P)$(R)Blade") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))BLADE")
+	field (ZRVL, 0)
+	field (ZRST, "10 slots")
+	field (ONVL, 1)
+	field (ONST, "15 slots")
+	field (TWVL, 2)
+	field (TWST, "30 slots")
+	field (THVL, 3)
+	field (THST, "60 slots")
+	field (FRVL, 4)
+	field (FRST, "2f")
+	field (FVVL, 5)
+	field (FVST, "2 slots")
+	field (SXVL, 6)
+	field (SXST, "2 slots (slave)")
+}
+record (longout, "$(P)$(R)InternalFreq") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))INTERNAL_FREQ")
+	field (EGU, "Hz")
+}
+record (longout, "$(P)$(R)HarmonicMult") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))HARMONIC_MULT")
+}
+record (longout, "$(P)$(R)Subharmonic") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))SUBHARMONIC")
+}
+record (bo, "$(P)$(R)ExternalRef") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))EXTERNAL_REF")
+	field (ZNAM, "Internal")
+	field (ONAM, "External")
+	info (asyn:READBACK, "1")
+}
+record (mbbo, "$(P)$(R)RefOutput") {
+	field (DTYP, "asynInt32")
+	field (OUT, "@asyn($(PORT),$(ADDR),$(TIMEOUT))REF_OUTPUT")
+	field (ZRVL, 0)
+	field (ZRST, "Chopper wheel")
+	field (ONVL, 1)
+	field (ONST, "Internal synthesizer")
+	field (TWVL, 2)
+	field (TWST, "Sum frequency")
+	field (THVL, 3)
+	field (THST, "Diff frequency")
+}
+record (mbbi, "$(P)$(R)Status") {
+	field (SCAN, "I/O Intr")
+	field (DTYP, "asynInt32")
+	field (INP, "@asyn($(PORT),$(ADDR),$(TIMEOUT))STATUS")
+	field (ZRVL, 0)
+	field (ZRST, "Stopped")
+	field (ONVL, 1)
+	field (ONST, "Running")
+	field (TWVL, 2)
+	field (TWST, "No ref")
+	field (THVL, 3)
+	field (THST, "Lock error")
+	field (FRVL, 4)
+	field (FRST, "PLL error")
+}
+record (ai, "$(P)$(R)CurrentFreq") {
+	field (SCAN, "I/O Intr")
+	field (DTYP, "asynInt32")
+	field (INP, "@asyn($(PORT),$(ADDR),$(TIMEOUT))CURRENT_FREQ")
+	field (EGU, "Hz")
+	field (ASLO, 0.01)
+	field (PREC, 2)
+}
+
